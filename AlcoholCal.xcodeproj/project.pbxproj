@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B22B57F23CA2A12002DC7E7 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 5B22B57E23CA2A12002DC7E7 /* www */; };
+		5B22B5C023CA2EA0002DC7E7 /* 504199.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B22B5BF23CA2EA0002DC7E7 /* 504199.png */; };
 		A433C0ED224EAF06004FCA90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A433C0EC224EAF06004FCA90 /* AppDelegate.swift */; };
 		A433C0EF224EAF06004FCA90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A433C0EE224EAF06004FCA90 /* ViewController.swift */; };
 		A433C0F2224EAF06004FCA90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A433C0F0224EAF06004FCA90 /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		5B22B5BB23CA2A15002DC7E7 /* angular-admob.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "angular-admob.js"; sourceTree = "<group>"; };
 		5B22B5BD23CA2A15002DC7E7 /* socicon.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = socicon.woff; sourceTree = "<group>"; };
 		5B22B5BE23CA2A15002DC7E7 /* faq.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = faq.html; sourceTree = "<group>"; };
+		5B22B5BF23CA2EA0002DC7E7 /* 504199.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 504199.png; sourceTree = "<group>"; };
 		A433C0E9224EAF06004FCA90 /* AlcoholCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlcoholCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A433C0EC224EAF06004FCA90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A433C0EE224EAF06004FCA90 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				A433C0F3224EAF09004FCA90 /* Assets.xcassets */,
 				A433C0F5224EAF09004FCA90 /* LaunchScreen.storyboard */,
 				A433C0F8224EAF09004FCA90 /* Info.plist */,
+				5B22B5BF23CA2EA0002DC7E7 /* 504199.png */,
 			);
 			path = IOSAlcoholCal;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B22B57F23CA2A12002DC7E7 /* www in Resources */,
+				5B22B5C023CA2EA0002DC7E7 /* 504199.png in Resources */,
 				A433C0F7224EAF09004FCA90 /* LaunchScreen.storyboard in Resources */,
 				A433C0F4224EAF09004FCA90 /* Assets.xcassets in Resources */,
 				A433C0F2224EAF06004FCA90 /* Main.storyboard in Resources */,

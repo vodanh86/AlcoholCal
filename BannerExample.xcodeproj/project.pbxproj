@@ -49,7 +49,7 @@
 				8EDF9A4775D86ECBCD2D627E /* Pods-BannerExample.debug.xcconfig */,
 				CF0DA0003B3C87E5C5A70301 /* Pods-BannerExample.release.xcconfig */,
 			);
-			path = Pods;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		849326D91B066C7900863759 = {

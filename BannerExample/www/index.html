@@ -183,7 +183,7 @@
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Bạn đã uống bao lâu:</strong></td>
+                                            <td><strong>Bạn đã uống bao lâu (giờ):</strong></td>
                                             <td><input class="col-md-8" type="text" name="hours" id="hours" value="">
                                             </td>
                                         </tr>
@@ -335,19 +335,19 @@
             var hours = document.forms.bacform.hours.value;
             var type = document.forms.bacform.type.value;
             var message = "";
-            if (isNaN(drinks)){
+            if (!drinks || isNaN(drinks)){
                 alert("Lượng rượu phải là 1 số");
                 return false;
             }
-            if (isNaN(percent)){
+            if (!percent || isNaN(percent)){
                 alert("Độ rượu phải là 1 số");
                 return false;
             }
-            if (isNaN(weight)){
+            if (!weight || isNaN(weight)){
                 alert("Cân nặng phải là 1 số");
                 return false;
             }
-            if (isNaN(hours)){
+            if (!hours || isNaN(hours)){
                 alert("Thơi gian phải là 1 số");
                 return false;
             }

@@ -18,7 +18,7 @@ import GoogleMobileAds
 import UIKit
 import WebKit
 
-class ViewController: UIViewController , WKNavigationDelegate{
+class ViewController: UIViewController , WKNavigationDelegate, WKUIDelegate{
 
   /// The banner view.
     @IBOutlet weak var webView: WKWebView!
@@ -32,6 +32,8 @@ class ViewController: UIViewController , WKNavigationDelegate{
     let request = URLRequest(url: url)
     
     // 1
+    webView.uiDelegate = self
+    webView.navigationDelegate = self
     webView.load(request)
     navigationController?.isToolbarHidden = false
     
@@ -41,8 +43,17 @@ class ViewController: UIViewController , WKNavigationDelegate{
     
   }
 
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        title = webView.title
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String,
+                 initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+
+        let alertController = UIAlertController(title: message, message: nil,
+                                                preferredStyle: UIAlertController.Style.alert);
+
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel) {
+            _ in completionHandler()}
+        );
+
+        self.present(alertController, animated: true, completion: {});
     }
     
 }

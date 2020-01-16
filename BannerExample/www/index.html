@@ -156,14 +156,30 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Bạn đã uống bao nhiêu ml:</strong></td>
-                                            <td><input class="col-md-8" type="text" name="drinks" id="drinks"
-                                                    value=""><br></td>
+                                            <td colspan="2"><strong>Bạn đã uống bao nhiêu :</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><input style="width:30%" class="col-md-8" type="text" name="drinks" id="drinks"
+                                                    value="">
+                                                    <select id="type" name="type">
+                                                        <option value="330">cốc (330ml)</option>
+                                                        <option value="120">ly (120ml)</option>
+                                                        <option value="35">chén (35ml)</option>
+                                                        <option value="1">ml</option>
+                                                      </select>
+                                                    <br></td>
+                                        </tr>
+                                        <tr>
+                                            <td ><strong>Tương đương với :</strong></td>
+                                            <td >
+                                                <label id="total" style="margin-bottom:0">0ml</label>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><strong>Nồng độ cồn (%):</strong></td>
                                             <td><input class="col-md-8" type="text" name="percent" id="percent"
-                                                    value=""></td>
+                                                    value="">
+                                                </td>
                                         </tr>
                                         <tr>
                                             <td><strong>Bạn đã uống bao lâu:</strong></td>
@@ -293,6 +309,7 @@
             if (myStorage.getItem('percent')) document.forms.bacform.percent.value = myStorage.getItem('percent');
             if (myStorage.getItem('weight')) document.forms.bacform.weight.value = myStorage.getItem('weight');
             if (myStorage.getItem('hours')) document.forms.bacform.hours.value = myStorage.getItem('hours');
+            if (myStorage.getItem('type')) document.getElementById('type').value = myStorage.getItem('type');
         };
 
         function clearForm() {
@@ -306,12 +323,14 @@
             var percent = eval(document.forms.bacform.percent.value);
             var weight = eval(document.forms.bacform.weight.value);
             var hours = eval(document.forms.bacform.hours.value);
+            var type = eval(document.forms.bacform.type.value);
             var message = "";
-            var result = (drinks * percent * 0.00088 / (weight * gender)) - (hours * 0.015);
+            var result = (drinks * percent * type * 0.00088 / (weight * gender)) - (hours * 0.015);
 
             if (drinks) myStorage.setItem('drinks', drinks);
             if (percent) myStorage.setItem('percent', percent);
             if (weight) myStorage.setItem('weight', weight);
+            if(type) myStorage.setItem('type', type);
             if (hours || hours == 0) myStorage.setItem('hours', hours);
 
             if (result < 0) {

@@ -156,18 +156,19 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2"><strong>Bạn đã uống bao nhiêu :</strong></td>
+                                            <td ><strong>Bạn đã uống bao nhiêu :</strong></td>
+                                            <td style="text-align: left"><input style="width:40%" class="col-md-8" type="text" name="drinks" id="drinks"
+                                                value="" onchange="updateTotal()">
+                                                <select id="type" name="type" onchange="updateTotal()">
+                                                    <option value="330">cốc (330ml)</option>
+                                                    <option value="120">ly (120ml)</option>
+                                                    <option value="35">chén (35ml)</option>
+                                                    <option value="1">ml</option>
+                                                  </select>
+                                                <br></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2"><input style="width:30%" class="col-md-8" type="text" name="drinks" id="drinks"
-                                                    value="">
-                                                    <select id="type" name="type">
-                                                        <option value="330">cốc (330ml)</option>
-                                                        <option value="120">ly (120ml)</option>
-                                                        <option value="35">chén (35ml)</option>
-                                                        <option value="1">ml</option>
-                                                      </select>
-                                                    <br></td>
+                                           
                                         </tr>
                                         <tr>
                                             <td ><strong>Tương đương với :</strong></td>
@@ -310,7 +311,16 @@
             if (myStorage.getItem('weight')) document.forms.bacform.weight.value = myStorage.getItem('weight');
             if (myStorage.getItem('hours')) document.forms.bacform.hours.value = myStorage.getItem('hours');
             if (myStorage.getItem('type')) document.getElementById('type').value = myStorage.getItem('type');
+            if (myStorage.getItem('drinks') && myStorage.getItem('type')){
+                document.getElementById('total').innerHTML = myStorage.getItem('drinks') * myStorage.getItem('type') + "ml";
+            }
         };
+
+        function updateTotal(){
+            if (document.forms.bacform.type.value && !isNaN(document.forms.bacform.drinks.value)){
+                document.getElementById('total').innerHTML = document.forms.bacform.type.value * document.forms.bacform.drinks.value + "ml";
+            }
+        }
 
         function clearForm() {
             var x = document.forms.bacform
@@ -318,13 +328,29 @@
         }
 
         function calBAC() {
-            var gender = eval(document.forms.bacform.gender.value);
-            var drinks = eval(document.forms.bacform.drinks.value);
-            var percent = eval(document.forms.bacform.percent.value);
-            var weight = eval(document.forms.bacform.weight.value);
-            var hours = eval(document.forms.bacform.hours.value);
-            var type = eval(document.forms.bacform.type.value);
+            var gender = document.forms.bacform.gender.value;
+            var drinks = document.forms.bacform.drinks.value;
+            var percent = document.forms.bacform.percent.value;
+            var weight = document.forms.bacform.weight.value;
+            var hours = document.forms.bacform.hours.value;
+            var type = document.forms.bacform.type.value;
             var message = "";
+            if (isNaN(drinks)){
+                alert("Lượng rượu phải là 1 số");
+                return false;
+            }
+            if (isNaN(percent)){
+                alert("Độ rượu phải là 1 số");
+                return false;
+            }
+            if (isNaN(weight)){
+                alert("Cân nặng phải là 1 số");
+                return false;
+            }
+            if (isNaN(hours)){
+                alert("Thơi gian phải là 1 số");
+                return false;
+            }
             var result = (drinks * percent * type * 0.00088 / (weight * gender)) - (hours * 0.015);
 
             if (drinks) myStorage.setItem('drinks', drinks);
